@@ -3,39 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Games</title>
+    <title>The mangas</title>
 </head>
 <body>
 
     {% extends 'base.html' %}
 
     {% block content %}
-    <h2>Essa é a página de games</h2>
-    <h3>Jogo em destaque:</h3>
+    <h2>Essa é a página de mangás</h2>
+    <h3>Mangá em destaque:</h3>
     <ul>
         <li>Título: <strong>{{title}}</strong></li>
         <li>Ano: <strong>{{year}}</strong></li>
         <li>Categoria: <strong>{{category}}</strong></li>
     </ul>
-    <p>O jogo {{title}} tem {{2025-year}} anos.</p>
+    <p>O Mangá {{title}} tem {{2025-year}} anos.</p>
 
     {# Esse é um comentário em jinja2 #}
 
-    <h3>Está sendo jogado por:</h3>
+    <h3>Está sendo lido por:</h3>
     <ol>
-        {% for player in players %}
-        <li>{{player}}</li>
+        {% for user in users %}
+        <li>{{user}}</li>
         {% endfor %}
     </ol>
     <hr>
-    <form action="{{url_for('games')}}" method="post">
-        <label for="player">Jogador:</label>
-        <input type="text" name="player" class="form-control w-50">
+    <form action="{{url_for('mangas')}}" method="post">
+        <label for="user">Usuário:</label>
+        <input type="text" name="user" class="form-control w-50">
         <input type="submit" value="Entrar" class="btn btn-success">
     </form>
 
-    <h4>Console mais bem avaliado:</h4>
-    {% for key, value in console.items() %}
+    <h4>Mangá mais bem avaliado:</h4>
+    {% for key, value in brand.items() %}
     <details>
         <summary>{{key}}</summary>
         <p>{{value}}</p>

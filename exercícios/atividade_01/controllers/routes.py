@@ -3,37 +3,37 @@ from flask import render_template, request, redirect, url_for
 
 def init_app(app):
     #array em python
-    players = ['Yan', 'Ferrari', 'Valéria', 'Amanda']
-    gamelist = [{'Título' : 'CS 1.6', 'Ano' : 2000, 'Categoria' : 'FPS Online'}]
+    users = ['Afonso', 'José', 'Isa', 'Yan']
+    mangalist = [{'Título' : 'Naruto', 'Ano' : 1999, 'Categoria' : 'Ação'}]
     # definindo a rota principal da aplicação '/'
     @app.route('/')
     def home():  # função que será executada ao acessar a rota - view function
         return render_template('index.html') 
 
-    @app.route('/games', methods=['GET', 'POST'])
-    def games():
-        title = 'Tarisland'
-        year = 2022
-        category = 'MMORPG'
+    @app.route('/mangas', methods=['GET', 'POST'])
+    def mangas():
+        title = 'Bleach'
+        year = 2006
+        category = 'Ação'
         
         # dicionário em python (objeto)
-        console = {'Nome': 'PlayStation 5', 'Fabricante': 'Sony', 'Ano': 2020}
+        brand = {'Nome': 'ShounenJump', 'Distribuidora': 'Panini', 'Ano': 2018}
         
         #tratando uma requisição post com request
         if request.method == 'POST':
             #coletando o texto da input
-            if request.form.get('player'):
-                players.append(request.form.get('player'))
-                return redirect(url_for('games'))
+            if request.form.get('user'):
+                users.append(request.form.get('user'))
+                return redirect(url_for('mangas'))
         
-        return render_template('games.html', title=title, year=year, category=category, players=players, console=console)
+        return render_template('mangas.html', title=title, year=year, category=category, users=users, brand=brand)
 
-    @app.route('/newgame', methods=['GET', 'POST'])
-    def newgame():
+    @app.route('/newmanga', methods=['GET', 'POST'])
+    def newmanga():
         # Tratando a requisição POST
         if request.method == 'POST':
             if request.form.get('title') and request.form.get('year') and request.form.get('category'):
-                gamelist.append({'Título' : request.form.get('title'), 'Ano' : request.form.get('year'), 'Categoria' : request.form.get('category')})
-                return redirect(url_for('games'))
-        return render_template('newGame.html', gamelist=gamelist)
+                mangalist.append({'Título' : request.form.get('title'), 'Ano' : request.form.get('year'), 'Categoria' : request.form.get('category')})
+                return redirect(url_for('mangas'))
+        return render_template('newmanga.html', mangalist=mangalist)
     

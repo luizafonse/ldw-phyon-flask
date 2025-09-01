@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Games</title>
+    <title>The Mangás</title>
 </head>
 <body>
 
@@ -12,7 +12,7 @@
     {% block content %}
     <h1>
         <hr>
-        <form action="{{url_for('newgame')}}" method="post">
+        <form action="{{url_for('newmanga')}}" method="post">
             <label for="">Título:</label>
             <input type="text" name="title">
             <label for="">Ano:</label>
@@ -31,11 +31,11 @@
     <th>Ano</th>
     <th>Categoria</th>
     </tr>
-    {% for game in gamelist %}
+    {% for manga in mangalist %}
     <tr>
-        <td>{{game.Título}}</td>
-        <td>{{game.Ano}}</td>
-        <td>{{game.Categoria}}</td>
+        <td>{{manga.Título}}</td>
+        <td>{{manga.Ano}}</td>
+        <td>{{manga.Categoria}}</td>
     </tr>
     
     {% endfor %}
