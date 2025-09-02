@@ -1,0 +1,12 @@
+
+    {% extends 'base.html' %}
+
+    {% block content %}
+
+    <h1>Bem vindo a Página Inicial</h1>
+    <hr>
+
+    <a href="/games"><p>Página de jogos</p></a>
+    <a href="{{url_for('newgame')}}"><p>Cadastrar jogos</p></a>{# melhor jeito para links no flask#}
+    
+    {% endblock content %}
