@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+ 
+{% block content %}
+<div class="col-md-6 m-auto">
+    <h3 style="text-align: center;">Editar jogo:</h3>
+    <form action="{{url_for('edit', id=game.id)}}" method="POST">
+        <input type="text" name="title" class="form-control" value="{{game.title}}" required>
+        <br>
+        <input type="number" name="year" class="form-control" value="{{game.year}}" required>
+         <br>
+        <input type="text" name="category" class="form-control" value="{{game.category}}" required>
+        <br>
+        <input type="text" name="platform" class="form-control" value="{{game.platform}}" required>
+        <br>
+        <input type="number" name="price" class="form-control" value="{{game.price}}" required>
+        <br>
+        <input type="number" name="quantity" class="form-control" value="{{game.quantity}}" required>
+        <br>
+        <input type="submit" value="Editar" class="btn btn-warning">
+        <a href="{{url_for('estoque')}}"></a> <input type="button" value="Cancelar" class="btn btn-danger">
+        </form>
+</div>
+ 
+{% endblock content %}
