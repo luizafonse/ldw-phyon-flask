@@ -3,38 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The mangas</title>
+    <title>The animes</title>
 </head>
 <body>
 
     {% extends 'base.html' %}
 
     {% block content %}
-    <h2>Essa é a página de mangás</h2>
-    <h3>Mangá em destaque:</h3>
+    <h2>Essa é a página de animes</h2>
+    <h3>Anime em destaque:</h3>
     <ul>
         <li>Título: <strong>{{title}}</strong></li>
         <li>Ano: <strong>{{year}}</strong></li>
         <li>Categoria: <strong>{{category}}</strong></li>
     </ul>
-    <p>O Mangá {{title}} tem {{2025-year}} anos.</p>
+    <p>O Animes {{title}} tem {{2025-year}} anos.</p>
 
     {# Esse é um comentário em jinja2 #}
 
-    <h3>Está sendo lido por:</h3>
+    <h3>Está sendo assistido por:</h3>
     <ol>
         {% for user in users %}
         <li>{{user}}</li>
         {% endfor %}
     </ol>
     <hr>
-    <form action="{{url_for('mangas')}}" method="post">
+    <form action="{{url_for('animes')}}" method="post">
         <label for="user">Usuário:</label>
         <input type="text" name="user" class="form-control w-50">
         <input type="submit" value="Entrar" class="btn btn-success">
     </form>
 
-    <h4>Mangá mais bem avaliado:</h4>
+    <h4>Anime mais bem avaliado:</h4>
     {% for key, value in brand.items() %}
     <details>
         <summary>{{key}}</summary>

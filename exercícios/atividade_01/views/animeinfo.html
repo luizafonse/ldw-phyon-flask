@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container" style="background-color: aliceblue; border: radius 8px;">
+    <div class="row">
+        <div class="col-md-6 m-auto">
+            <a href="{{url_for('apianimes')}}" class="btn btn-dark">Voltar para todos os Animes</a>
+            <div class="card">
+                <img src="{{animeInfo.thumbnail}}" alt="Imagem do Anime">
+                <div class="card-body m-auto">
+                    <h3>{{animeInfo.title}}</h3>
+                    <p>Genero:{{animeInfo.genre}}</p>
+                    <p>Descrição:{{animeInfo.short_description}}</p>
+                    <p>Studio:{{animeInfo.studio}}</p>
+                    <p>Editora:{{animeInfo.publisher}}</p>
+                    <p>Data de lançamento:{{animeInfo.release_date}}</p>
+                    <a href="{{animeInfo.freetoanime_profile_url}}" class="btn btn-dark">Saber Mais!</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

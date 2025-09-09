@@ -34,6 +34,6 @@ def init_app(app):
         if request.method == 'POST':
             if request.form.get('title') and request.form.get('year') and request.form.get('category'):
                 gamelist.append({'Título' : request.form.get('title'), 'Ano' : request.form.get('year'), 'Categoria' : request.form.get('category')})
-                return redirect(url_for('games'))
+                return redirect(url_for('newgame'))
         return render_template('newGame.html', gamelist=gamelist)
     
